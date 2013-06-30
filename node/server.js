@@ -28,7 +28,6 @@ var lastValue = 0;
 SerialPort.list(function (err, ports) {
     ports.forEach(function (port) {
         arduinoBegin(port.comName);
-
     });
 });
 
@@ -39,7 +38,7 @@ function arduinoBegin(port) {
     var sendData = "";
 
     // Init of serialport
-    var serialPort = new SerialPort.SerialPort("COM5", {
+    var serialPort = new SerialPort.SerialPort(port, {
         baudrate: 9600,
         // defaults for Arduino serial communication
         dataBits: 8,
