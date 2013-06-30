@@ -8,5 +8,6 @@
         position = ($(window).height() * data / 100);
         position -= nodeduino.height();
         nodeduino.css('margin-top', position + 'px');
+        nodeduino.fadeIn();
     });
 })(jQuery);

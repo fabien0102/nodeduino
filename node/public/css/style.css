@@ -8,6 +8,7 @@ body {
     background-color: #143580;
 }
 #nodeduino {
+    display: none;
     background-image: url("https://github.com/zacstewart/Meow/diff_blob/3ea7bae688b13ab29b182cfbe0f62dcad73d58b2/nyan-cat.gif?raw=true");
     background-repeat: no-repeat;
     background-size: 200px;
