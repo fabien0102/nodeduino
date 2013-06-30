@@ -1,6 +1,7 @@
 /**
  * SERVER HTTP 
  **/
+
 var express = require('express'),
     app = express(),
     server = require('http').createServer(app),
@@ -16,8 +17,12 @@ app.get('/', function (req, res) {
 /**
  * ARDUINO -> WEBSOCKET
  **/
+
 // Init serialPort module
 var SerialPort = require('serialport');
+
+// Last value (GLOBAl)
+var lastValue = 0;
 
 // Search serialPort for auto-connect
 SerialPort.list(function (err, ports) {
@@ -59,7 +64,16 @@ function arduinoBegin(port) {
             }
 
             // send the incoming data to browser with websockets.
+            lastValue = sendData;
             io.sockets.emit('update', sendData);
         });
     });
 }
+
+/**
+ * NEW CLIENT ACTION -> log + send last value
+ **/
+io.sockets.on('connection', function (socket){
+    console.log('New client');
+    socket.emit('update', lastValue);
+});
