@@ -1,4 +1,4 @@
-nodeduino
+Nodeduino
 =========
 
 Je continue mes tests avec Node.js, cette fois-ci le défi est de contrôler tous mes clients grâce à un arduino.
