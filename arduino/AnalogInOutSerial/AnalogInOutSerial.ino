@@ -12,7 +12,7 @@ void loop() {
 
     if (sensorValue != lastValue) {
         Serial.print("B"); // begin char
-        Serial.print(sensorValue);   
+        Serial.print(map(sensorValue,0,1023,0,100));   
         Serial.print("E"); // end char
     } 
     lastValue = sensorValue;    
